@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      Name :
+    </div>
+    <div class="col-md-6">
+      {{product.name}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      Supplier ID :
+    </div>
+    <div class="col-md-6">
+      {{product.supplierId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Price :
+    </div>
+    <div class="col-md-6">
+      {{product.price}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Supplier :
+    </div>
+    <div class="col-md-6">
+      {{product.supplier}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      Rating :
+    </div>
+    <div class="col-md-6">
+      {{product.rating}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <img src={{product.image}} width=50 height=50 />
+    </div>
+  </div>
+  <div class="row">
+    <hr/>
+    <button (click)="goBack()" class="btn btn-primary">Back</button>
+  </div>
+</div>

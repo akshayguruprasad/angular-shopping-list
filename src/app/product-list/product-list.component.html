@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <div class="row" id="product" *ngIf="pro">
+     <app-product [product]=pro></app-product>
+    </div>
+    <div class="row" style="float:right">
+      <label class="col-md-4" for="filterProp">Filter By :</label>
+      <div class="col-md-6" id="filterProp"><input type="text" class="filterValue" [(ngModel)]="Filter" class="form-control" /></div>
+    <div class="col-md-2"></div>
+    </div>
+    
+    <div class="table">
+      <table class="table" *ngIf="!products || products.length">
+        <thead>
+          <tr>
+                       <th>Name</th>
+            <th>Price</th>
+            <th>Supplier</th>
+            <th>Rating</th>
+            <th><button class="btn btn-primary" (click)='toggleImage()'>{{(this.isShowImage ? 'Hide' : 'Show').concat('
+              Images')}}</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of filteredProducts">
+           
+            <td><a [routerLink]="['/product/12']">{{product.name}}</a></td>
+            <td>{{product.price | currency:'INR':'symbol':'1.2-2'}}</td>
+            <td>{{{supplierName:product.supplier,supplierId:product.supplierId}|supplierformat|lowercase}}</td>
+            <td>
+              <app-stars [product]='product' (output)=setProduct($event) ></app-stars>
+            </td>
+            <td><img src="{{product.image}}" [width]='imageWidth' [height]="imageHeight" *ngIf="isShowImage" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
